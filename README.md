@@ -150,38 +150,6 @@ MY GOAT FOR VLMS IS https://huggingface.co/unsloth/LFM2.5-VL-1.6B-GGUF
     dont compress the image at all, that makes no difference, same amount of pixels, only makes the VLM more stupid and less accurate.
 
     some vlms have dynamic_pixels, which auto scales down videos and images
-
-# TTS MODEL SAUCE
-
-    if ur making ASMR stuff, use https://huggingface.co/hexgrad/Kokoro-82M
-    
-    ik c++ is faster, but their python lib is solid
-```bash
-U NEED CUDA TORCH
-```
-```bash
-pip install uv
-
-uv pip install kokoro
-
-uv pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
-```
-```bash
-EXAMPLE SCRIPT FOR YALL
-```
-
-```bash
-from kokoro import KPipeline
-import torch
-
-pipeline = KPipeline(lang_code='a')
-
-def generate_tts(text: str, voice: str = 'af_heart'):
-    generator = pipeline(text, voice=voice)
-    # Get the first segment
-    for _, _, audio in generator:
-        return audio, 24000
-```
 # VOICE CLONING SAUCE
     
     CHATTERBOX-TTS's TURBO IS LIKE AS GOOD OR BETTER THAN ELEVENLABS IF THAT GIVES U AN IDEA
